@@ -48,10 +48,6 @@ function find(data = [], findBy = "") {
   return null;
 }
 
-function findUserById(data = [], id = "") {
-  return find(data, id);
-}
-
 function findByIdAndDelete(data = [], findBy = "") {
   if (!findBy) return;
 
@@ -81,5 +77,4 @@ export {
   createNewCommentObject,
   find,
   findByIdAndDelete,
-  findUserById,
 };
