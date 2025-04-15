@@ -296,9 +296,9 @@ function handleLikeCounterInteraction(btnCounter, loggedInUser, data) {
 // --------------------------------------
 function handleCommentEdit(btnEdit, data) {
   const commentBodyEl = btnEdit.closest(".comment-body");
-  const commentTextValueEl = commentBodyEl.querySelector(".comment-text-value");
+  const commentTextEl = commentBodyEl.querySelector(".comment-text");
 
-  commentTextValueEl.contentEditable = true;
+  commentTextEl.contentEditable = true;
 
   const commentToEdit = find(
     comments,
@@ -306,12 +306,15 @@ function handleCommentEdit(btnEdit, data) {
   );
 
   function handleCommentChange(ev) {
-    commentToEdit.content = ev.target.innerText;
-    commentTextValueEl.contentEditable = false;
+    const editCommentTextValue = ev.target.querySelector(
+      ".comment-text-value"
+    ).innerText;
+    commentToEdit.content = editCommentTextValue;
+    commentTextEl.contentEditable = false;
     saveDataToLocalStorage(data);
   }
 
-  commentTextValueEl.addEventListener("blur", handleCommentChange);
+  commentTextEl.addEventListener("blur", handleCommentChange);
 }
 
 function handleReplyButtonClick(btnReply) {
