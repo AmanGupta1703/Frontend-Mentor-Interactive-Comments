@@ -1,0 +1,90 @@
+.btn {
+  cursor: pointer;
+  border-style: none;
+  display: inline-block;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-counter {
+  color: var(--color-primary-03);
+}
+
+/* .btn-counter:focus {
+  box-shadow: 0.2rem 0.2rem 0.4rem rgba(0, 0, 0, 0.5);
+  padding: 0.2rem;
+  transform: scale(1.3);
+} */
+
+.btn-counter:hover {
+  transform: scale(0.8);
+}
+
+.btn-counter:active {
+  transform: scale(0.7);
+}
+
+.btn-action {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  transition: all 250ms ease-in-out;
+}
+
+.btn-action:hover {
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+.btn-action:active {
+  transform: scale(0.8);
+  opacity: 0.7;
+}
+
+.btn-delete {
+  color: var(--color-primary-02);
+}
+
+.btn-edit {
+  color: var(--color-primary-01);
+}
+
+.btn-reply {
+  color: var(--color-primary-01);
+}
+
+.btn-reply:focus {
+  transform: scale(1.1);
+}
+
+.btn-add-comment {
+  color: var(--color-white);
+  background-color: var(--color-primary-01);
+  border-radius: 0.8rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+}
+
+.btn-add-comment:hover {
+  transform: scale(0.98);
+  opacity: 0.7;
+}
+
+.btn-add-comment:active {
+  transform: scale(0.92);
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 600px) {
+  .btn-action {
+    font-size: 1.4rem;
+    column-gap: 0.3rem;
+  }
+
+  .btn-form {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

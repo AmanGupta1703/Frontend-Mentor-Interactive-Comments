@@ -1,0 +1,73 @@
+.popup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 500ms ease-in-out;
+}
+
+.hide {
+  display: none;
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.popup {
+  color: var(--color-neutral-01);
+  background-color: var(--color-white);
+  border-radius: 0.8rem;
+  padding: 2rem;
+  max-width: 32rem;
+  position: relative;
+  z-index: 2;
+}
+
+.popup-body {
+  margin-bottom: 1.5rem;
+}
+
+.popup-text {
+  color: var(--color-neutral-02);
+  font-size: 1.4rem;
+  margin-top: 1.2rem;
+}
+
+.popup-button-action {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-popup {
+  border-radius: 1rem;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+  transition: all 500ms ease-in-out;
+}
+
+.btn-popup:hover {
+  box-shadow: 0.2rem 0.2rem 0.2rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+
+.btn-popup:active {
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn-cancel {
+  background-color: var(--color-neutral-02);
+}
+
+.btn-danger {
+  background-color: var(--color-primary-02);
+}

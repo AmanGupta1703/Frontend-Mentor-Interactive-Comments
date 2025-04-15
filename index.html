@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Interactive comments section</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script defer type="module" src="./js/script.js"></script>
+  </head>
+  <body>
+    <main class="main">
+      <div class="main-wrapper">
+        <article class="comments">
+          <div class="comment-container">
+            <article class="comment">
+              <div class="comment-wrapper">
+                <div class="like-counter">
+                  <button class="btn btn-counter btn-add">
+                    <img class="btn-add-icon" src="./images/icon-plus.svg" />
+                  </button>
+                  <span class="like-count">2</span>
+                  <button class="btn btn-counter btn-minus">
+                    <img class="btn-minus-icon" src="./images/icon-minus.svg" />
+                  </button>
+                </div>
+                <div class="comment-body">
+                  <div class="comment-meta">
+                    <div class="comment-meta-data">
+                      <img
+                        class="comment-avatar"
+                        src="./images/avatars/image-juliusomo.webp"
+                        alt="avatar of juliusomo"
+                      />
+                      <span class="comment-username"
+                        >juliusomo
+                        <span class="badge badge-primary">you</span>
+                      </span>
+
+                      <span class="comment-created">2 days ago</span>
+                    </div>
+
+                    <div class="button-actions">
+                      <button class="btn btn-action btn-delete">
+                        <img
+                          class="btn-delete-icon"
+                          src="./images/icon-delete.svg"
+                        />
+                        Delete
+                      </button>
+                      <button class="btn btn-action btn-edit">
+                        <img
+                          class="btn-edit-icon"
+                          src="./images/icon-edit.svg"
+                        />
+                        Edit
+                      </button>
+                    </div>
+                  </div>
+                  <p class="comment-text">
+                    <span class="comment-text-username">juliusomo</span> I
+                    couldn't agree more with this. Everything moves so fast and
+                    it always seems like everyone knows the newest
+                    library/framework. But the fundamentals are what stay
+                    constant.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="replies">
+              <div class="replies-wrapper"></div>
+              <div class="thread"></div>
+            </article>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <div class="popup-container hide">
+      <div class="popup-overlay"></div>
+      <div class="popup popup-danger">
+        <div class="popup-body">
+          <h3 class="popup-heading">Delete comment</h3>
+          <p class="popup-text">
+            Are you sure you want to delete this comment? This will remove the
+            comment and can't be undone.
+          </p>
+        </div>
+        <div class="popup-button-action">
+          <button class="btn btn-popup btn-cancel">no, cancel</button>
+          <button class="btn btn-popup btn-danger">yes, delete</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+<article class="add-comment">
+  <div class="add-comment-box">
+    <img
+      alt="avatar of juliusomo"
+      class="add-comment-avatar"
+      src="./images/avatars/image-juliusomo.webp"
+    />
+
+    <form class="form form-add-comment">
+      <textarea
+        placeholder="Add a comment..."
+        rows="4"
+        class="textarea textarea-comment"
+      ></textarea>
+      <button class="btn btn-form btn-add-comment">Send</button>
+    </form>
+  </div>
+</article>
+-->
