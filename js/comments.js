@@ -3,8 +3,6 @@ import {
   fetchDataFromLocalStorage,
   saveDataToLocalStorage,
   createNewCommentObject,
-  findUserByUsername,
-  findUserById,
   find,
   findByIdAndDelete,
 } from "./utils.js";
@@ -234,12 +232,7 @@ function handleAddCommentFormSubmit(
 // --------------------------------------
 // Handle Like Counter
 // --------------------------------------
-function handleAddLikeScore(
-  btnCounter,
-  userCommentData,
-  loggedInUser,
-  likeCountEl
-) {
+function handleAddLikeScore(userCommentData, loggedInUser, likeCountEl) {
   if (userCommentData?.likeBy && userCommentData.likeBy.length) {
     if (userCommentData.likeBy.some((id) => id === loggedInUser.id)) return;
   }
@@ -423,7 +416,7 @@ async function init() {
     const btnDelete = ev.target.closest(".btn-delete");
     const btnEdit = ev.target.closest(".btn-edit");
 
-    const loggedInUser = findUserByUsername(comments, currentUser.username);
+    const loggedInUser = find(comments, currentUser.username);
 
     if (btnCounter) {
       handleLikeCounterInteraction(btnCounter, loggedInUser, data);
