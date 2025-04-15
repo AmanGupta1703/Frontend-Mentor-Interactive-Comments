@@ -48,27 +48,6 @@ function find(data = [], findBy = "") {
   return null;
 }
 
-function findUserByUsername(data = [], username = "") {
-  if (!username) return;
-
-  for (let i = 0; i < data.length; i++) {
-    const item = data[i];
-
-    if (item.user.username === username) {
-      return item;
-    }
-
-    if (item.replies && item.replies.length > 0) {
-      const found = findUserByUsername(item.replies, username);
-      if (found) {
-        return found;
-      }
-    }
-  }
-
-  return null;
-}
-
 function findUserById(data = [], id = "") {
   return find(data, id);
 }
