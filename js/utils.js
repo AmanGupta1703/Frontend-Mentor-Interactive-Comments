@@ -81,6 +81,5 @@ export {
   createNewCommentObject,
   find,
   findByIdAndDelete,
-  findUserByUsername,
   findUserById,
 };
