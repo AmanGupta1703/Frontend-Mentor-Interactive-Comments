@@ -38,8 +38,6 @@
   --color-neutral-04: hsl(228, 33%, 97%);
 
   --box-shadow-color: hsl(0deg 0% 0% / 0.38);
-
-  --box-shadow: 4px 8px 8px var(--box-shadow-color);
 }
 
 body {

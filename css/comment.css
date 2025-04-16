@@ -36,7 +36,6 @@
 .comment {
   /* border: 0.4rem solid maroon; */
   border-radius: 1.6rem;
-  box-shadow: var(--box-shadow);
   background-color: var(--color-white);
   padding: 2.4rem;
   width: 100%;
