@@ -233,6 +233,10 @@ function handleAddCommentFormSubmit(
 // Handle Like Counter
 // --------------------------------------
 function handleAddLikeScore(userCommentData, loggedInUser, likeCountEl) {
+  if (!userCommentData || !loggedInUser) return;
+
+  if (userCommentData.id === loggedInUser.id) return;
+
   if (userCommentData?.likeBy && userCommentData.likeBy.length) {
     if (userCommentData.likeBy.some((id) => id === loggedInUser.id)) return;
   }
@@ -245,12 +249,11 @@ function handleAddLikeScore(userCommentData, loggedInUser, likeCountEl) {
   likeCountEl.textContent = score;
 }
 
-function handleDislikeScore(
-  btnCounter,
-  userCommentData,
-  loggedInUser,
-  likeCountEl
-) {
+function handleDislikeScore(userCommentData, loggedInUser, likeCountEl) {
+  if (!userCommentData || !loggedInUser) return;
+
+  if (userCommentData.id === loggedInUser.id) return;
+
   if (userCommentData?.likeBy && userCommentData.likeBy.length) {
     const index = userCommentData.likeBy.findIndex(
       (id) => id === loggedInUser.id
@@ -281,11 +284,11 @@ function handleLikeCounterInteraction(btnCounter, loggedInUser, data) {
     : [];
 
   if (btnCounter.classList.contains("btn-add")) {
-    handleAddLikeScore(btnCounter, userCommentData, loggedInUser, likeCountEl);
+    handleAddLikeScore(userCommentData, loggedInUser, likeCountEl);
   }
 
   if (btnCounter.classList.contains("btn-minus")) {
-    handleDislikeScore(btnCounter, userCommentData, loggedInUser, likeCountEl);
+    handleDislikeScore(userCommentData, loggedInUser, likeCountEl);
   }
 
   saveDataToLocalStorage(data);
