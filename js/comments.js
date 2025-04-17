@@ -355,11 +355,11 @@ function handleDeleteComment(btnDelete) {
       const btnDanger = ev.target.closest(".btn-danger");
 
       if (btnDanger) {
-        comments = findByIdAndDelete(
+        const updateComments = findByIdAndDelete(
           comments,
           Number(commentEl.getAttribute("data-id"))
         );
-        renderComments(comments);
+        renderComments(updateComments);
         saveDataToLocalStorage(data);
       }
 

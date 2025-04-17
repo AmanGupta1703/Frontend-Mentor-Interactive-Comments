@@ -15,8 +15,11 @@ function createNewCommentObject(commentContent, currentUser, replyingTo) {
     score: 0,
     replyingTo: replyingTo ? replyingTo : null,
     user: {
-      image: currentUser.image,
-      username: currentUser.username,
+      image: {
+        png: currentUser.user.image.png,
+        webp: currentUser.user.image.webp,
+      },
+      username: currentUser.user.username,
     },
     replies: [],
   };
