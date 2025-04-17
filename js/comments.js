@@ -106,7 +106,7 @@ function createCommentHTML(comment, index) {
     replies,
   } = comment;
 
-  const isCurrentUser = currentUser.username === username;
+  const isCurrentUser = currentUser.user.username === username;
   let html = "";
 
   html += `
@@ -172,14 +172,14 @@ function renderAddCommentBox(
 }
 
 function createAddCommentForm(currentUser, replyingTo) {
-  const { image, username } = currentUser;
+  const { user } = currentUser;
 
   return `
     <div class="add-comment-box">
       <img
-        alt="avatar of ${username}"
+        alt="avatar of ${user.username}"
         class="add-comment-avatar"
-        src="${image.webp}"
+        src="${user.image.webp || user.image.png}"
       />
       <form class="form form-add-comment">
         <textarea
@@ -398,6 +398,23 @@ function handleFormSubmission(ev) {
   }
 }
 
+function handleCommentActions(ev) {
+  const btnCounter = ev.target.closest(".btn-counter");
+  const btnReply = ev.target.closest(".btn-reply");
+  const btnDelete = ev.target.closest(".btn-delete");
+  const btnEdit = ev.target.closest(".btn-edit");
+
+  if (btnCounter) {
+    handleLikeCounterInteraction(btnCounter, currentUser, data);
+  } else if (btnReply) {
+    handleReplyButtonClick(btnReply);
+  } else if (btnDelete) {
+    handleDeleteComment(btnDelete);
+  } else if (btnEdit) {
+    handleCommentEdit(btnEdit, data);
+  }
+}
+
 // --------------------------------------
 // Initialization
 // --------------------------------------
@@ -410,30 +427,16 @@ async function init() {
 
   if (!data) return;
 
-  comments = data.comments;
-  currentUser = data.currentUser;
+  const { comments: commentsData, currentUser: loggedInUser } = data;
+
+  comments = commentsData;
+  currentUser = loggedInUser;
+
   renderComments(data.comments);
-  renderAddCommentBox(data.currentUser);
+  renderAddCommentBox(currentUser);
   saveDataToLocalStorage(data);
 
-  window.addEventListener("click", function (ev) {
-    const btnCounter = ev.target.closest(".btn-counter");
-    const btnReply = ev.target.closest(".btn-reply");
-    const btnDelete = ev.target.closest(".btn-delete");
-    const btnEdit = ev.target.closest(".btn-edit");
-
-    const loggedInUser = find(comments, currentUser.username);
-
-    if (btnCounter) {
-      handleLikeCounterInteraction(btnCounter, loggedInUser, data);
-    } else if (btnReply) {
-      handleReplyButtonClick(btnReply);
-    } else if (btnDelete) {
-      handleDeleteComment(btnDelete);
-    } else if (btnEdit) {
-      handleCommentEdit(btnEdit, data);
-    }
-  });
+  window.addEventListener("click", handleCommentActions);
 
   window.addEventListener("submit", handleFormSubmission);
 }

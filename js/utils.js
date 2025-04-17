@@ -23,9 +23,9 @@ function createNewCommentObject(commentContent, currentUser, replyingTo) {
 }
 
 function find(data = [], findBy = "") {
-  if (!findBy) return;
+  if (!findBy || !data.length) return;
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < data?.length; i++) {
     const item = data[i];
 
     const findCondition =
